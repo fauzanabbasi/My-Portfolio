@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fauzan Abdul Aziz Abbasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #14151a;
+    --bg-raised: #1c1e26;
+    --ink: #eeece6;
+    --ink-dim: #9a9ba5;
+    --violet: #7c5cff;
+    --amber: #ffb84d;
+    --teal: #4dd9c5;
+    --line: #2c2e38;
+  }
+
+  *{ box-sizing: border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  ::selection{ background: var(--violet); color: var(--bg); }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; transition: none !important; }
+  }
+
+  .wrap{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* --- Nav --- */
+  nav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(20,21,26,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .nav-mark{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+  .nav-links{
+    display:flex;
+    gap: 28px;
+    list-style:none;
+    font-size: 0.92rem;
+    color: var(--ink-dim);
+  }
+  .nav-links a{
+    text-decoration:none;
+    transition: color .2s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible{ color: var(--ink); }
+
+  /* --- Hero --- */
+  header.hero{
+    padding: 96px 0 80px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute;
+    right: -120px;
+    top: -80px;
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(124,92,255,0.25), transparent 70%);
+    pointer-events: none;
+  }
+  .eyebrow{
+    color: var(--teal);
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    max-width: 11ch;
+  }
+  .role-line{
+    margin-top: 22px;
+    font-size: 1.15rem;
+    color: var(--ink-dim);
+    max-width: 46ch;
+  }
+  .role-line strong{
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* --- Section shared --- */
+  section{
+    padding: 72px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  section:last-of-type{ border-bottom: none; }
+
+  h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+
+  /* --- About --- */
+  .about p{
+    font-size: 1.08rem;
+    max-width: 62ch;
+    color: #d7d6cf;
+  }
+  .about p + p{ margin-top: 16px; }
+
+  .fact-row{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+  }
+  .fact{
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+    background: var(--bg-raised);
+  }
+  .fact b{ color: var(--ink); font-weight: 500; }
+
+  /* --- Skills (three modes) --- */
+  .modes{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .mode{
+    background: var(--bg-raised);
+    padding: 30px 24px;
+    display:flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .mode-icon{
+    width: 34px;
+    height: 34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius: 8px;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size: 0.95rem;
+  }
+  .mode:nth-child(1) .mode-icon{ background: rgba(124,92,255,0.16); color: var(--violet); }
+  .mode:nth-child(2) .mode-icon{ background: rgba(255,184,77,0.16); color: var(--amber); }
+  .mode:nth-child(3) .mode-icon{ background: rgba(77,217,197,0.16); color: var(--teal); }
+
+  .mode h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+  }
+  .mode p{
+    font-size: 0.94rem;
+    color: var(--ink-dim);
+  }
+
+  @media (max-width: 720px){
+    .modes{ grid-template-columns: 1fr; }
+  }
+
+  /* --- Currently --- */
+  .now-list{
+    list-style: none;
+    display:flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 58ch;
+  }
+  .now-list li{
+    display:flex;
+    gap: 14px;
+    align-items:baseline;
+    font-size: 1rem;
+    color: #d7d6cf;
+  }
+  .dot{
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--violet);
+    flex: none;
+    transform: translateY(-2px);
+  }
+
+  /* --- Footer / contact --- */
+  footer{
+    padding: 64px 0 80px;
+  }
+  footer h2{ margin-bottom: 14px; }
+  footer p{
+    color: var(--ink-dim);
+    max-width: 52ch;
+    font-size: 1rem;
+  }
+  .footer-name{
+    margin-top: 40px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="nav-mark">FAA</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#now">Currently</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Portfolio</div>
+    <h1>Fauzan Abdul Aziz Abbasi</h1>
+    <p class="role-line">
+      Second-year <strong>Diploma in Computer Science Engineering</strong> student at
+      Osmania University, splitting time between building for the web,
+      editing footage, and chasing high scores.
+    </p>
+  </div>
+</header>
+
+<section id="about" class="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p>
+      I'm currently in my second year of a Computer Science Engineering
+      diploma at Osmania University, learning the fundamentals that sit
+      underneath everything I build.
+    </p>
+    <p>
+      Outside of coursework, I spend my time writing code for the web,
+      cutting and editing video, and playing competitively &mdash; three
+      pretty different hobbies that all reward the same thing: patience
+      with small details.
+    </p>
+    <div class="fact-row">
+      <div class="fact"><b>Program:</b> Diploma, Computer Science Engineering</div>
+      <div class="fact"><b>Year:</b> 2nd year</div>
+      <div class="fact"><b>Institution:</b> Osmania University</div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>What I work on</h2>
+    <div class="modes">
+      <div class="mode">
+        <div class="mode-icon">&lt;/&gt;</div>
+        <h3>Web development</h3>
+        <p>Building and styling sites &mdash; comfortable going from a blank page to something that works in the browser.</p>
+      </div>
+      <div class="mode">
+        <div class="mode-icon">&#9998;</div>
+        <h3>Editing</h3>
+        <p>Cutting footage, pacing scenes, and putting together video that actually holds attention.</p>
+      </div>
+      <div class="mode">
+        <div class="mode-icon">&#9679;</div>
+        <h3>Gaming</h3>
+        <p>Competitive player who enjoys the strategy and reflexes side of gaming as much as the fun of it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="now">
+  <div class="wrap">
+    <h2>Currently</h2>
+    <ul class="now-list">
+      <li><span class="dot"></span> Working through second-year coursework in Computer Science Engineering.</li>
+      <li><span class="dot"></span> Picking up more web development skills alongside classes.</li>
+      <li><span class="dot"></span> Open to adding real projects and links here as they're ready &mdash; this page is a starting point.</li>
+    </ul>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p>
+      Email-Id:- fauzanabdulazizabbasi@gmail.com
+    </p>
+      <p>
+        Insta-Id:- a_b_b_a_s_i_3
+      </p>
+    <div class="footer-name">Fauzan Abdul Aziz Abbasi &mdash; Osmania University</div>
+  </div>
+</footer>
+
+</body>
+</html>
